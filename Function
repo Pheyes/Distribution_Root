@@ -39,7 +39,16 @@ void distribution()
  f->SetParameter(6,gamma1);
  f->SetParameter(7,gamma2);
  
- f->Draw();
+ //f->Draw();
+ 
+ TH1F *h1= new TH1F("h1","Distribution",500,0,2*pi);
+
+ for(Int_t i=0;i<5000;i++) {
+ double r = f->GetRandom(); 
+ h1->Fill(r);
+ }
+
+ h1->Draw();
 
 }
 
